@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Colors} from './Colors';
 
 export default (Indicator = ({
   itemCount,
@@ -73,10 +72,6 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     marginRight: 5,
   },
-  active: {
-    backgroundColor: Colors.active,
-  },
-  inactive: {
-    backgroundColor: Colors.inactive,
-  },
+  active: {},
+  inactive: {},
 });

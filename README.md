@@ -5,7 +5,7 @@ Custom Image Slider Component in React Native
 
 ### Install
 ```
-npm i react-native-image-slider-box
+npm i react-native-flatlist-slider
 ```
 
 ### Import 
@@ -97,6 +97,7 @@ npm i react-native-image-slider-box
 | imageKey                | String       | ‘image'      | Key for image in object                            |
 | local                   | Boolean      | false        | Image to be loaded from URI or local               |
 | width                   | Number       | screenWidth  | Width of Item in list                              |
+| height                  | Number       | 230          | Height of Item in list                              |
 | loop                    | Boolean      | true         | Enable infinite scroll for list                    |
 | separatorWidth          | Number       | 0            | Width of separator between list items              |
 | autoscroll              | Boolean      | true         | Enable autoScroll for list                         |

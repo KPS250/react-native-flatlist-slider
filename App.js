@@ -6,7 +6,7 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
-import CustomComponent from './src/CustomComponent';
+import CustomComponent from './src/ChildItem';
 import Preview from './src/Preview';
 import {FlatListSlider} from 'react-native-flatlist-slider';
 
