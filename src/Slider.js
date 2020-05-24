@@ -10,6 +10,7 @@ import {
   UIManager,
 } from 'react-native';
 import Indicator from './Indicator';
+import CustomComponent from './CustomComponent';
 
 export default class Slider extends Component {
   slider = createRef();
@@ -32,6 +33,7 @@ export default class Slider extends Component {
     timer: 3000,
     onPress: {},
     contentContainerStyle: {},
+    component: <CustomComponent />,
   };
 
   constructor(props) {
@@ -75,16 +77,14 @@ export default class Slider extends Component {
           data={this.state.data}
           showsHorizontalScrollIndicator={false}
           renderItem={({item, index}) =>
-            this.props.component
-              ? React.cloneElement(this.props.component, {
-                  style: {width: this.props.width},
-                  item: item,
-                  imageKey: this.props.imageKey,
-                  onPress: this.props.onPress,
-                  index: this.state.index % this.props.data.length,
-                  active: index === this.state.index,
-                })
-              : this.renderItem(item, this.state.index % this.props.data.length)
+            React.cloneElement(this.props.component, {
+              style: {width: this.props.width},
+              item: item,
+              imageKey: this.props.imageKey,
+              onPress: this.props.onPress,
+              index: this.state.index % this.props.data.length,
+              active: index === this.state.index,
+            })
           }
           ItemSeparatorComponent={() => (
             <View style={{width: this.props.separatorWidth}} />

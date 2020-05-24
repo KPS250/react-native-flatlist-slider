@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
-import {Text, SafeAreaView, Dimensions, StyleSheet} from 'react-native';
-import Slider from './src/Slider';
+import {
+  Text,
+  SafeAreaView,
+  Dimensions,
+  StyleSheet,
+  ScrollView,
+} from 'react-native';
 import CustomComponent from './src/CustomComponent';
-import {Colors} from './src/Colors';
 import Preview from './src/Preview';
+import {FlatListSlider} from 'react-native-flatlist-slider';
 
 export default class extends Component {
   constructor(props) {
@@ -47,38 +52,40 @@ export default class extends Component {
     const screenWidth = Math.round(Dimensions.get('window').width);
     return (
       <SafeAreaView>
-        <Text style={styles.title}> Slider</Text>
-        <Slider
-          data={this.state.data}
-          imageKey={'image'}
-          local={false}
-          width={screenWidth}
-          separator={0}
-          component={<CustomComponent />}
-          loop={true}
-          autoscroll={true}
-          currentIndexCallback={index => console.log('Index', index)}
-          onPress={item => alert(JSON.stringify(item))}
-          indicator
-          indicatorStyle={{}}
-          indicatorContainerStyle={{}}
-          indicatorActiveColor={Colors.active}
-          indicatorInActiveColor={Colors.inactive}
-          indicatorActiveWidth={30}
-          animation
-        />
+        <ScrollView>
+          <Text style={styles.title}>{'Slider'}</Text>
+          <FlatListSlider
+            data={this.state.data}
+            timer={2000}
+            imageKey={'image'}
+            local={false}
+            width={screenWidth}
+            separator={0}
+            component={<CustomComponent />}
+            loop={true}
+            autoscroll={true}
+            currentIndexCallback={index => console.log('Index', index)}
+            onPress={item => alert(JSON.stringify(item))}
+            indicator
+            indicatorStyle={{}}
+            indicatorContainerStyle={{position: 'absolute', bottom: 20}}
+            indicatorActiveColor={'#8e44ad'}
+            indicatorInActiveColor={'#ffffff'}
+            indicatorActiveWidth={30}
+            animation
+          />
 
-        <Text style={styles.title}> Horizontal List</Text>
-
-        <Slider
-          data={this.state.data}
-          width={275}
-          timer={5000}
-          component={<Preview />}
-          onPress={item => alert(JSON.stringify(item))}
-          indicatorActiveWidth={40}
-          contentContainerStyle={styles.contentStyle}
-        />
+          <Text style={styles.title}>{'Horizontal List'}</Text>
+          <FlatListSlider
+            data={this.state.data}
+            width={275}
+            timer={4000}
+            component={<Preview />}
+            onPress={item => alert(JSON.stringify(item))}
+            indicatorActiveWidth={40}
+            contentContainerStyle={styles.contentStyle}
+          />
+        </ScrollView>
       </SafeAreaView>
     );
   }
@@ -90,7 +97,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     fontSize: 16,
   },
-  contentStyle:{
+  contentStyle: {
     paddingHorizontal: 16,
   },
 });
