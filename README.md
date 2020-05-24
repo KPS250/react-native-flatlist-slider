@@ -1,4 +1,4 @@
-# React-Native-Image-Slider
+# React-Native-FlatList-Slider
 Custom Image Slider Component in React Native
 
 ![Screenshot](https://github.com/KPS250/ReactNative-ImageSlider/blob/master/src/screenshots/banner.gif)
