@@ -77,9 +77,8 @@ npm i react-native-flatlist-slider
 ```
  <FlatListSlider
     data={images}
-    width={275}
+    height={240}
     timer={5000}
-    component={<Preview />}
     onPress={item => alert(JSON.stringify(item))}
     contentContainerStyle={{paddingHorizontal: 16}}
     indicatorContainerStyle={{position:'absolute', bottom: 20}}
