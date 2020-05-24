@@ -19,6 +19,7 @@ export default class FlatListSlider extends Component {
     imageKey: 'image',
     local: false,
     width: Math.round(Dimensions.get('window').width),
+    height: 230,
     separatorWidth: 0,
     loop: true,
     indicator: true,

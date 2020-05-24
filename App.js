@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import {
-  Text,
   SafeAreaView,
   Dimensions,
   StyleSheet,
   ScrollView,
+  View,
 } from 'react-native';
-import CustomComponent from './src/ChildItem';
+
 import Preview from './src/Preview';
-import {FlatListSlider} from 'react-native-flatlist-slider';
+import FlatListSlider from './src/FlatListSlider';
+// import {FlatListSlider} from 'react-native-flatlist-slider';
 
 export default class extends Component {
   constructor(props) {
@@ -53,7 +54,6 @@ export default class extends Component {
     return (
       <SafeAreaView>
         <ScrollView>
-          <Text style={styles.title}>{'Slider'}</Text>
           <FlatListSlider
             data={this.state.data}
             timer={2000}
@@ -61,21 +61,14 @@ export default class extends Component {
             local={false}
             width={screenWidth}
             separator={0}
-            component={<CustomComponent />}
             loop={true}
             autoscroll={true}
             currentIndexCallback={index => console.log('Index', index)}
             onPress={item => alert(JSON.stringify(item))}
             indicator
-            indicatorStyle={{}}
-            indicatorContainerStyle={{position: 'absolute', bottom: 20}}
-            indicatorActiveColor={'#8e44ad'}
-            indicatorInActiveColor={'#ffffff'}
-            indicatorActiveWidth={30}
             animation
           />
-
-          <Text style={styles.title}>{'Horizontal List'}</Text>
+          <View style={styles.separator} />
           <FlatListSlider
             data={this.state.data}
             width={275}
@@ -85,6 +78,17 @@ export default class extends Component {
             indicatorActiveWidth={40}
             contentContainerStyle={styles.contentStyle}
           />
+          <View style={styles.separator} />
+          <FlatListSlider
+            data={this.state.data}
+            timer={5000}
+            onPress={item => alert(JSON.stringify(item))}
+            indicatorContainerStyle={{position:'absolute', bottom: 20}}
+            indicatorActiveColor={'#8e44ad'}
+            indicatorInActiveColor={'#ffffff'}
+            indicatorActiveWidth={30}
+            animation
+          />
         </ScrollView>
       </SafeAreaView>
     );
@@ -92,10 +96,8 @@ export default class extends Component {
 }
 
 const styles = StyleSheet.create({
-  title: {
-    marginVertical: 20,
-    paddingLeft: 16,
-    fontSize: 16,
+  separator: {
+    height: 20,
   },
   contentStyle: {
     paddingHorizontal: 16,
