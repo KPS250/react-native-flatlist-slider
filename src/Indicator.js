@@ -54,6 +54,7 @@ export const renderIndicator = (
                 ...{backgroundColor: indicatorInActiveColor},
               },
         ]}
+      key = {i.toString()}
       />,
     );
   }
