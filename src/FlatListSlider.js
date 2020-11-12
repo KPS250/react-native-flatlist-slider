@@ -53,6 +53,10 @@ export default class FlatListSlider extends Component {
     }
   }
 
+  componentDidUpdate(prevprops) {
+    if (prevprops.data !== this.props.data) this.setState({ data: this.props.data });
+  }
+  
   componentWillUnmount() {
     if (this.props.autoscroll) {
       this.stopAutoPlay();
