@@ -1,7 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, Image, StyleSheet} from 'react-native';
 
-export default (ChildItem = ({
+const ChildItem = ({
   item,
   style,
   onPress,
@@ -18,7 +18,7 @@ export default (ChildItem = ({
       />
     </TouchableOpacity>
   );
-});
+};
 
 const styles = StyleSheet.create({
   container: {},
@@ -27,3 +27,5 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch',
   },
 });
+
+export default ChildItem;
