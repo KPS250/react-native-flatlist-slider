@@ -15,7 +15,7 @@
     "react-native-flatlist-slider": "^0.1.9"
   },
   "devDependencies": {
-    "@babel/core": "7.9.6",
+    "@babel/core": "7.29.6",
     "@babel/runtime": "7.9.6",
     "@react-native-community/eslint-config": "0.0.5",
     "babel-jest": "24.9.0",
